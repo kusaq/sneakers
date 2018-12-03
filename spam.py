@@ -11,7 +11,9 @@ print('[WARNING] You should have file with spam text in "text.txt" and blacklist
 login = input('login : ')
 passw = input('password : ')
 ban_mode = ask_yorn('Should we enter ban mode?')
-mode_type = ask_yorn('Should we enter manual mode?')
+
+if ban_mode == 'n':
+    mode_type = ask_yorn('Should we enter manual mode?')
 
 textfile = open('text.txt', 'r')
 messagetext = textfile.read()
