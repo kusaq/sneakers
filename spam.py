@@ -43,4 +43,5 @@ for friend in vk_api.friends.get(v = vk_v, user_id = vk_me)['items']:
         user_answer = ask_yorn('Add ' + cur_friend['first_name'] + ' ' + cur_friend['last_name'] + ' to blacklist?')
         if user_answer == 'y':
             blfile.write(str(friend) + '\n')
+
 blfile.close()
