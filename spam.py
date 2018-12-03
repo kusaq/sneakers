@@ -17,15 +17,14 @@ textfile = open('text.txt', 'r')
 messagetext = textfile.read()
 textfile.close()
 
-blfile = open('bl.txt', 'r')
-blacklist = [int(x.strip()) for x in blfile]
-
 vk_api = vk.API(vk.AuthSession('6728603', login, passw, "messages, friends"))
 vk_v = '5.37'
 vk_me = vk_api.users.get(v=vk_v)[0]['id']
 
 for friend in vk_api.friends.get(v = vk_v, user_id = vk_me)['items']:
     if ban_mode == 'n':
+        blfile = open('bl.txt', 'r')
+        blacklist = [int(x.strip()) for x in blfile]
         if friend not in blacklist:
             cur_friend = vk_api.users.get(v='5.37', user_id = friend)[0]
             if mode_type == 'y':
